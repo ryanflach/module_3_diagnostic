@@ -12,7 +12,7 @@ RSpec.feature 'User searches for nearest stations' do
     # Then I should be on page "/search" with parameters visible in the url
     expect(current_path).to eq('/search?80203')
     # Then I should see a list of the 10 closest stations within 6 miles sorted by distance
-    expect(page).to have_content('Stations within 6 miles of 80203')
+    expect(page).to have_content('Nearest 10 Stations within 6 miles of 80203')
     # And the stations should be limited to Electric and Propane
     within('table') do
       expect(page).to have_content('Electric')
