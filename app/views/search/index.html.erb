@@ -1,4 +1,4 @@
-<h1>Nearest 10 Stations within 6 miles of <%= params[:q] %></h1>
+<h1>Nearest 10 Stations within 6 miles of <%= params[:zip] %></h1>
 <table>
   <thead>
     <th>Name</th>
@@ -10,7 +10,11 @@
   <tbody>
     <% @results.each do |station| %>
       <tr>
-        <td>station.</td>
+        <td><%= station.station_name %></td>
+        <td><%= station.street_address %></td>
+        <td><%= station.fuel_type_code %></td>
+        <td><%= station.distance %></td>
+        <td><%= station.access_days_time %></td>
       </tr>
     <% end %>
   </tbody>

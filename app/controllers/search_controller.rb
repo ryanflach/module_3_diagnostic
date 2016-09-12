@@ -5,12 +5,11 @@ class SearchController < ApplicationController
       build.headers['X-Api-Key'] = ENV['NREL_KEY']
     end
     response = connection.get do |req|
-      req.params['location'] = params[:q]
+      req.params['location'] = params[:zip]
       req.params['radius'] = 6.0
       req.params['fuel_type'] = 'ELEC, LPG'
       req.params['limit'] = 10
     end
-    @results = JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
-    byebug
+    @results = JSON.parse(response.body, object_class: OpenStruct).fuel_stations
   end
 end
