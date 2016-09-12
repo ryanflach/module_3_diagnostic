@@ -7,7 +7,7 @@ class Station
     NrelService.new
   end
 
-  def self.all
+  def self.all(zip)
     stations_hash = service.nearest_10_elec_plg_stations(zip)
     stations_hash.map { |station| Station.new(station) }
   end
